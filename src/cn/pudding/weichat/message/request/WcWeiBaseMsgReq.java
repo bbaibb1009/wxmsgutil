@@ -1,6 +1,6 @@
 package cn.pudding.weichat.message.request;
 
-public class LzWeiBaseMsgReq {
+public class WcWeiBaseMsgReq {
 	
 	// 开发者微信号   
 	private String toUserName;  
