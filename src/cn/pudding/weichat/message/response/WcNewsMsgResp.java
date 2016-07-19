@@ -4,9 +4,9 @@ import java.util.List;
 
 import cn.pudding.weichat.Constant;
 
-public class LzNewsMsgResp extends LzWeiBaseMsgResp {
+public class WcNewsMsgResp extends WcWeiBaseMsgResp {
 	
-	public LzNewsMsgResp(LzWeiBaseMsgResp base)
+	public WcNewsMsgResp(WcWeiBaseMsgResp base)
 	{
 		this.setFromUserName(base.getFromUserName());
 		this.setToUserName(base.getToUserName());

@@ -16,9 +16,9 @@ import org.dom4j.io.SAXReader;
 
 import cn.pudding.weichat.Constant;
 import cn.pudding.weichat.message.response.Article;
-import cn.pudding.weichat.message.response.LzWeiBaseMsgResp;
-import cn.pudding.weichat.message.response.LzWeiQiyehaoMsgResp;
-import cn.pudding.weichat.message.response.LzWeiTextMsgResp;
+import cn.pudding.weichat.message.response.WcWeiBaseMsgResp;
+import cn.pudding.weichat.message.response.WcWeiQiyehaoMsgResp;
+import cn.pudding.weichat.message.response.WcWeiTextMsgResp;
 import cn.pudding.weichat.mp.aes.AesException;
 import cn.pudding.weichat.mp.aes.WXBizMsgCrypt;
 
@@ -145,7 +145,7 @@ public class MessageUtil {
      * @param  textMessage 文本消息对象 
      * @return xml 
      */  
-    public static String textMessageToXml(LzWeiTextMsgResp textMessage) {  
+    public static String textMessageToXml(WcWeiTextMsgResp textMessage) {  
         xstream.alias("xml", textMessage.getClass());  
         return xstream.toXML(textMessage);  
     }
@@ -157,7 +157,7 @@ public class MessageUtil {
      * @param  textMessage 文本消息对象 
      * @return xml 
      */  
-    public static String textMessageToXml(LzWeiQiyehaoMsgResp textMessage) {  
+    public static String textMessageToXml(WcWeiQiyehaoMsgResp textMessage) {  
         xstream.alias("xml", textMessage.getClass());  
         return xstream.toXML(textMessage);  
     }
@@ -183,7 +183,7 @@ public class MessageUtil {
      * @throws DocumentException 
      * */
     public static String baseMessageToXml(
-    		LzWeiBaseMsgResp baseMessage,String encrypt_type,String token,
+    		WcWeiBaseMsgResp baseMessage,String encrypt_type,String token,
     		String encodingAesKey,String appId,
     		String MsgSignature,String TimeStamp ,String Nonce) 
     {  
@@ -204,14 +204,14 @@ public class MessageUtil {
     	}
     	catch(DocumentException e)
     	{
-    		LzWeiTextMsgResp textMsg = new LzWeiTextMsgResp(baseMessage);
+    		WcWeiTextMsgResp textMsg = new WcWeiTextMsgResp(baseMessage);
     		textMsg.setContent("XML解析格式错误:"+e.getMessage());
     		returnMsg = xstream.toXML(textMsg);
     		return returnMsg;
     	}
     	catch(AesException e)
     	{
-    		LzWeiTextMsgResp textMsg = new LzWeiTextMsgResp(baseMessage);
+    		WcWeiTextMsgResp textMsg = new WcWeiTextMsgResp(baseMessage);
     		textMsg.setContent("微信解密/加密错误:"+e.getMessage()+"错误代码:"+e.getCode());
     		returnMsg = xstream.toXML(textMsg);
     		return returnMsg;
