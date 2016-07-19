@@ -2,5 +2,15 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/weixinUtil/lib/commons-beanutils-1.7.0.jar"/>
+	<classpathentry kind="lib" path="/weixinUtil/lib/commons-codec-1.6.jar"/>
+	<classpathentry kind="lib" path="/weixinUtil/lib/commons-lang-2.1.jar"/>
+	<classpathentry kind="lib" path="/weixinUtil/lib/commons-logging-1.1.3.jar"/>
+	<classpathentry kind="lib" path="/weixinUtil/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/weixinUtil/lib/ezmorph-1.0.2.jar"/>
+	<classpathentry kind="lib" path="/weixinUtil/lib/json-lib-1.1-jdk13.jar"/>
+	<classpathentry kind="lib" path="/weixinUtil/lib/log4j-1.2.14.jar"/>
+	<classpathentry kind="lib" path="/weixinUtil/lib/Qrcode_swetake.jar"/>
+	<classpathentry kind="lib" path="/weixinUtil/lib/xstream-1.3.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
