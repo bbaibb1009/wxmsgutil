@@ -8,7 +8,7 @@ package cn.pudding.weichat.message.response;
 	</xml>
  * 
  * */
-public class LzWeiQiyehaoMsgResp {
+public class WcWeiQiyehaoMsgResp {
 
 	// 接收方帐号（收到的OpenID）  
     private String Encrypt;  

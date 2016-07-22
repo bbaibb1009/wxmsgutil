@@ -4,9 +4,9 @@ package cn.pudding.weichat.message.response;
 import cn.pudding.weichat.Constant;
 
 
-public class LzWeiTextMsgResp extends LzWeiBaseMsgResp {
+public class WcWeiTextMsgResp extends WcWeiBaseMsgResp {
 
-	public LzWeiTextMsgResp(LzWeiBaseMsgResp base)
+	public WcWeiTextMsgResp(WcWeiBaseMsgResp base)
 	{
 		this.setFromUserName(base.getFromUserName());
 		this.setToUserName(base.getToUserName());

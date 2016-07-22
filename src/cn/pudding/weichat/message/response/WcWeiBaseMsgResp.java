@@ -5,7 +5,7 @@ package cn.pudding.weichat.message.response;
  * @author dingjie 
  * @date 2014-12-05 
  */  
-public class LzWeiBaseMsgResp {
+public class WcWeiBaseMsgResp {
 	
     // 接收方帐号（收到的OpenID）  
     private String ToUserName;  
