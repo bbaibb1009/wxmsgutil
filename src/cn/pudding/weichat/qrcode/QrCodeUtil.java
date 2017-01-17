@@ -35,7 +35,7 @@ public class QrCodeUtil {
 	        qrcodeHandler.setQrcodeEncodeMode('B');
 	        qrcodeHandler.setQrcodeVersion(10);
 	        byte[] contentBytes = content.getBytes("utf-8");
-	        BufferedImage bufferImgage = new BufferedImage(280, 280, BufferedImage.TYPE_INT_RGB);
+	        BufferedImage bufferImgage = new BufferedImage(300, 300, BufferedImage.TYPE_INT_RGB);
 	        Graphics2D graphics2D = bufferImgage.createGraphics();
 	        graphics2D.setBackground(Color.WHITE);
 	        graphics2D.clearRect(0, 0, 280, 280);
