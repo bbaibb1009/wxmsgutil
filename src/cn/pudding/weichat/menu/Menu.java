@@ -1,7 +1,7 @@
 //:Menu.java
 package cn.pudding.weichat.menu;
 /** 
- * ²Ëµ¥ 
+ * èœå•
  * @author dingj 
  * @date 2014-12-06 
  */  

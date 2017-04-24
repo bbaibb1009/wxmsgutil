@@ -20,9 +20,9 @@ public class QrCodeUtil {
 	
 	
 	/**
-	 * Éú³É¶şÎ¬Âë²Ù×÷
-	 * ³¤:200
-	 * ¿í:200
+	 * ç”ŸæˆäºŒç»´ç æ“ä½œ
+	 * é•¿:200
+	 * å®½:200
 	 * 
 	 * */
 	public static byte[] createQRCode(String content) 
@@ -77,7 +77,7 @@ public class QrCodeUtil {
 	  
 	public static void main(String[] args)
 	{
-		System.out.println(QrCodeUtil.createQRCode("ÄãºÃ!"));
+		System.out.println(QrCodeUtil.createQRCode("ä½ å¥½!"));
 	}
 	
 }

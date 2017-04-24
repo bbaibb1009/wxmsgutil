@@ -1,6 +1,6 @@
 package cn.pudding.weichat.mp.aes;
 /**
- * ¶Ô¹«ÖÚÆ½Ì¨·¢ËÍ¸ø¹«ÖÚÕËºÅµÄÏûÏ¢¼Ó½âÃÜÊ¾Àı´úÂë.
+ * å¯¹å…¬ä¼—å¹³å°å‘é€ç»™å…¬ä¼—è´¦å·çš„æ¶ˆæ¯åŠ è§£å¯†ç¤ºä¾‹ä»£ç .
  * 
  * @copyright Copyright (c) 1998-2014 Tencent Inc.
  */
@@ -14,17 +14,17 @@ import java.util.Date;
 /**
  * SHA1 class
  *
- * ¼ÆËã¹«ÖÚÆ½Ì¨µÄÏûÏ¢Ç©Ãû½Ó¿Ú.
+ * è®¡ç®—å…¬ä¼—å¹³å°çš„æ¶ˆæ¯ç­¾åæ¥å£.
  */
 public class SHA1 {
 
 	/**
-	 * ÓÃSHA1Ëã·¨Éú³É°²È«Ç©Ãû
-	 * @param token Æ±¾İ
-	 * @param timestamp Ê±¼ä´Á
-	 * @param nonce Ëæ»ú×Ö·û´®
-	 * @param encrypt ÃÜÎÄ
-	 * @return °²È«Ç©Ãû
+	 * ç”¨SHA1ç®—æ³•ç”Ÿæˆå®‰å…¨ç­¾å
+	 * @param token ç¥¨æ®
+	 * @param timestamp æ—¶é—´æˆ³
+	 * @param nonce éšæœºå­—ç¬¦ä¸²
+	 * @param encrypt å¯†æ–‡
+	 * @return å®‰å…¨ç­¾å
 	 * @throws AesException 
 	 */
 	public static String getSHA1(String token, String timestamp, String nonce, String encrypt) throws AesException
@@ -32,14 +32,14 @@ public class SHA1 {
 		try {
 			String[] array = new String[] { token, timestamp, nonce, encrypt };
 			StringBuffer sb = new StringBuffer();
-			// ×Ö·û´®ÅÅĞò
+			// å­—ç¬¦ä¸²æ’åº
 			Arrays.sort(array);
 			for (int i = 0; i < 4; i++) {
 				sb.append(array[i]);
 			}
 			String str = sb.toString();
 			
-			// SHA1Ç©ÃûÉú³É
+			// SHA1ç­¾åç”Ÿæˆ
 			MessageDigest md = MessageDigest.getInstance("SHA-1");
 			md.update(str.getBytes());
 			byte[] digest = md.digest();
@@ -68,12 +68,12 @@ public class SHA1 {
 	}
 	
 	/**
-	 * ÓÃSHA1Ëã·¨Éú³É°²È«Ç©Ãû
-	 * @param token Æ±¾İ
-	 * @param timestamp Ê±¼ä´Á
-	 * @param nonce Ëæ»ú×Ö·û´®
-	 * @param encrypt ÃÜÎÄ
-	 * @return °²È«Ç©Ãû
+	 * ç”¨SHA1ç®—æ³•ç”Ÿæˆå®‰å…¨ç­¾å
+	 * @param token ç¥¨æ®
+	 * @param timestamp æ—¶é—´æˆ³
+	 * @param nonce éšæœºå­—ç¬¦ä¸²
+	 * @param encrypt å¯†æ–‡
+	 * @return å®‰å…¨ç­¾å
 	 * @throws AesException 
 	 */
 	public static String getJsSignatureSHA1(String string1) throws AesException
@@ -81,9 +81,9 @@ public class SHA1 {
 		try 
 		{
 			
-			//System.out.println("×ÖµäĞòºó:"+str);
+			//System.out.println("å­—å…¸åºå:"+str);
 			String str = string1.toString();
-			// SHA1Ç©ÃûÉú³É
+			// SHA1ç­¾åç”Ÿæˆ
 			MessageDigest md = MessageDigest.getInstance("SHA-1");
 			md.update(str.getBytes());
 			byte[] digest = md.digest();
@@ -104,22 +104,22 @@ public class SHA1 {
 	}
 	
 	/**
-	 * ÓÃSHA1Ëã·¨Éú³É°²È«Ç©Ãû
-	 * @param array Êı×é
-	 * @return °²È«Ç©Ãû
+	 * ç”¨SHA1ç®—æ³•ç”Ÿæˆå®‰å…¨ç­¾å
+	 * @param array æ•°ç»„
+	 * @return å®‰å…¨ç­¾å
 	 * @throws AesException 
 	 */
 	public static String getSHA1(String[] array) throws AesException
 	{
 		try {
 			StringBuffer sb = new StringBuffer();
-			// ×Ö·û´®ÅÅĞò
+			// å­—ç¬¦ä¸²æ’åº
 			Arrays.sort(array);
 			for (int i = 0; i < array.length; i++) {
 				sb.append(array[i]);
 			}
 			String str = sb.toString();
-			// SHA1Ç©ÃûÉú³É
+			// SHA1ç­¾åç”Ÿæˆ
 			MessageDigest md = MessageDigest.getInstance("SHA-1");
 			md.update(str.getBytes());
 			byte[] digest = md.digest();
@@ -145,20 +145,20 @@ public class SHA1 {
 		try
 		{
 			
-			///ÆóÒµºÅ´«¹ıÀ´µÄsignature:a9b8996b5666ca26860126fc7820dba4fd5de552
-			//ÆóÒµºÅ´«¹ıÀ´µÄechostr:a9b8996b5666ca26860126fc7820dba4fd5de552
-			//ÆóÒµºÅ´«¹ıÀ´µÄtimestamp:1443513184
-			//ÆóÒµºÅ´«¹ıÀ´µÄnonce:1365193601
-			//»Øµ÷º¯Êı¼ÆËã³öÀ´µÄsignature(digest):cf309213032afc46bba03124f0a0d2b3afcc2b15
+			///ä¼ä¸šå·ä¼ è¿‡æ¥çš„signature:a9b8996b5666ca26860126fc7820dba4fd5de552
+			//ä¼ä¸šå·ä¼ è¿‡æ¥çš„echostr:a9b8996b5666ca26860126fc7820dba4fd5de552
+			//ä¼ä¸šå·ä¼ è¿‡æ¥çš„timestamp:1443513184
+			//ä¼ä¸šå·ä¼ è¿‡æ¥çš„nonce:1365193601
+			//å›è°ƒå‡½æ•°è®¡ç®—å‡ºæ¥çš„signature(digest):cf309213032afc46bba03124f0a0d2b3afcc2b15
 			/**
-			ÆóÒµºÅ´«¹ıÀ´µÄsignature:81d0775203d10c10193cb05fb7991e3733a82d0c
-			ÆóÒµºÅ´«¹ıÀ´µÄechostr:IJ5/KDXWBXe3Fs58h19hAw3fbXcq9u5zUs9ek//rM7/uCF+zypXkHRdUAR0OGVLHPbENMMKQFh3z8XldkfTxog==
-			ÆóÒµºÅ´«¹ıÀ´µÄtimestamp:1443513853
-			ÆóÒµºÅ´«¹ıÀ´µÄnonce:1134471514
-			»Øµ÷º¯Êı¼ÆËã³öÀ´µÄsignature(digest):447aeb85d69a3f05ad394b5fbf9905245ac1c8fd
+			ä¼ä¸šå·ä¼ è¿‡æ¥çš„signature:81d0775203d10c10193cb05fb7991e3733a82d0c
+			ä¼ä¸šå·ä¼ è¿‡æ¥çš„echostr:IJ5/KDXWBXe3Fs58h19hAw3fbXcq9u5zUs9ek//rM7/uCF+zypXkHRdUAR0OGVLHPbENMMKQFh3z8XldkfTxog==
+			ä¼ä¸šå·ä¼ è¿‡æ¥çš„timestamp:1443513853
+			ä¼ä¸šå·ä¼ è¿‡æ¥çš„nonce:1134471514
+			å›è°ƒå‡½æ•°è®¡ç®—å‡ºæ¥çš„signature(digest):447aeb85d69a3f05ad394b5fbf9905245ac1c8fd
 			**/
 			
-			System.out.println(getSHA1("sdlongzhong", "1443513853", "1134471514", "nGGjEl0Ta4KPVmqA92MyNBGKQU9tDxQlOBIE5sZqYJJ91xvqDXHF2/lMCbTAsKJ7WAdJfgWKpVYAGiPWWA485Q=="));//Õâ¸ö¿ÉÒÔÉú³ÉAccessToken 
+			System.out.println(getSHA1("sdlongzhong", "1443513853", "1134471514", "nGGjEl0Ta4KPVmqA92MyNBGKQU9tDxQlOBIE5sZqYJJ91xvqDXHF2/lMCbTAsKJ7WAdJfgWKpVYAGiPWWA485Q=="));//è¿™ä¸ªå¯ä»¥ç”ŸæˆAccessToken 
 			
 		} catch (AesException e) {
 			// TODO Auto-generated catch block

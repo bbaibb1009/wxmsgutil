@@ -14,7 +14,7 @@ public class WcWeiTextMsgResp extends WcWeiBaseMsgResp {
 		this.setFuncFlag(base.getFuncFlag());
 		this.setMsgType(Constant.RESP_MESSAGE_TYPE_TEXT);
 	}
-	//ÏûÏ¢ÄÚÈİ  
+	//æ¶ˆæ¯å†…å®¹  
     private String Content;  
     
     public String getContent() {  

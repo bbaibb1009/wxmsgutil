@@ -1,5 +1,4 @@
 package cn.pudding.weichat.file;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -11,32 +10,32 @@ import org.apache.log4j.Logger;
 
 public class FileUtil {
 
-	private static 	Logger log = Logger.getLogger(FileUtil.class);
-	public 	final 	static String CONTENT_TYPE = "Content-Type";
-	//ÎÄ¼şÏÂÔØ	
-    public 	static 	String media_download_url = "http://file.api.weixin.qq.com/cgi-bin/media/get?access_token=ACCESS_TOKEN&media_id=MEDIA_ID";  
-   
-	
-	/** 
-     * ·¢ÆğhttpsÇëÇó²¢»ñÈ¡½á¹û 
-     * @param  access_token 	accessToken 
-     * @param  mediaId 		Ã½ÌåID
-     * @return JSONObject(Í¨¹ıJSONObject.get(key)µÄ·½Ê½»ñÈ¡json¶ÔÏóµÄÊôĞÔÖµ) 
+    private static 	Logger log = Logger.getLogger(FileUtil.class);
+    public 	final 	static String CONTENT_TYPE = "Content-Type";
+    //æ–‡ä»¶ä¸‹è½½
+    public 	static 	String media_download_url = "http://file.api.weixin.qq.com/cgi-bin/media/get?access_token=ACCESS_TOKEN&media_id=MEDIA_ID";
+
+
+    /**
+     * å‘èµ·httpsè¯·æ±‚å¹¶è·å–ç»“æœ
+     * @param  access_token 	accessToken
+     * @param  mediaId 		åª’ä½“ID
+     * @return JSONObject(é€šè¿‡JSONObject.get(key)çš„æ–¹å¼è·å–jsonå¯¹è±¡çš„å±æ€§å€¼)
      */
-	public static File downLoadMedia(String filePath,String accessToken,String mediaId)
-	{
-		String url = media_download_url.replace("ACCESS_TOKEN", accessToken).replace("MEDIA_ID", mediaId);  
-		return httpRequestToFile(filePath,url, "GET", null) ;
-	}
-	
-	/**
-     * ÒÔhttp·½Ê½·¢ËÍÇëÇó,²¢½«ÇëÇóÏìÓ¦ÄÚÈİÊä³öµ½ÎÄ¼ş
-     * @param path    ÇëÇóÂ·¾¶
-     * @param method  ÇëÇó·½·¨
-     * @param body    ÇëÇóÊı¾İ
-     * @return ·µ»ØÏìÓ¦µÄ´æ´¢µ½ÎÄ¼ş
+    public static File downLoadMedia(String filePath,String accessToken,String mediaId)
+    {
+        String url = media_download_url.replace("ACCESS_TOKEN", accessToken).replace("MEDIA_ID", mediaId);
+        return httpRequestToFile(filePath,url, "GET", null) ;
+    }
+
+    /**
+     * ä»¥httpæ–¹å¼å‘é€è¯·æ±‚,å¹¶å°†è¯·æ±‚å“åº”å†…å®¹è¾“å‡ºåˆ°æ–‡ä»¶
+     * @param path    è¯·æ±‚è·¯å¾„
+     * @param method  è¯·æ±‚æ–¹æ³•
+     * @param body    è¯·æ±‚æ•°æ®
+     * @return è¿”å›å“åº”çš„å­˜å‚¨åˆ°æ–‡ä»¶
      */
-    public static File httpRequestToFile(String fileName,String path, String method, String body) 
+    public static File httpRequestToFile(String fileName,String path, String method, String body)
     {
         if(fileName==null||path==null||method==null)
         {
@@ -53,7 +52,7 @@ public class FileUtil {
             conn.setDoInput(true);
             conn.setUseCaches(false);
             conn.setRequestMethod(method);
-            if (null != body) 
+            if (null != body)
             {
                 OutputStream outputStream = conn.getOutputStream();
                 outputStream.write(body.getBytes("UTF-8"));
@@ -67,7 +66,7 @@ public class FileUtil {
                 return file;
             }
 
-            //Ğ´Èëµ½ÎÄ¼ş
+            //å†™å…¥åˆ°æ–‡ä»¶
             fileOut = new FileOutputStream(file);
             if(fileOut!=null){
                 int c = inputStream.read();
@@ -84,26 +83,26 @@ public class FileUtil {
             }
 
             /*
-             * ±ØĞë¹Ø±ÕÎÄ¼şÁ÷
-             * ·ñÔòJDKÔËĞĞÊ±£¬ÎÄ¼ş±»Õ¼ÓÃÆäËû½ø³ÌÎŞ·¨·ÃÎÊ
+             * å¿…é¡»å…³é—­æ–‡ä»¶æµ
+             * å¦åˆ™JDKè¿è¡Œæ—¶ï¼Œæ–‡ä»¶è¢«å ç”¨å…¶ä»–è¿›ç¨‹æ— æ³•è®¿é—®
              */
             try {
                 inputStream.close();
                 fileOut.close();
             } catch (IOException execption) {
-            	log.error(execption);
+                log.error(execption);
             }
         }
         return file;
     }
-	
-    
+
+
     public static void main(String[] args) {
         File f = new File("D:/test.png");
         String appId = "";
         String appSecret = "";
 
-        //ÏÂÔØ¸Õ¸ÕÉÏ´«µÄÍ¼Æ¬ÒÔidÃüÃû
+        //ä¸‹è½½åˆšåˆšä¸Šä¼ çš„å›¾ç‰‡ä»¥idå‘½å
         File t = FileUtil.downLoadMedia("D:/test.png","wkIpGo7M_5w7rFL-sz8l1okMjl5FRkElv6IBUOdm5CpjprpdqhC1UmPto8k2mnwVD320azHse8Ubl5nNfpb60S3XQvgoDRZJWIzCy3X7BGI","mMGHvvUNUTVQwd2H80BpbDoyKeyeTSf89rtvV4lzVASugD_AYpxXAwd_seVdyqL-" );
 
     }

@@ -8,7 +8,7 @@ public class TextMsgUtil {
 	public static WcWeiBaseMsgResp getDefualtTextMsg(WcWeiBaseMsgResp contentReq)
 	{
 		WcWeiTextMsgResp txtMsg = new WcWeiTextMsgResp(contentReq);
-		String content= "Çëµã»÷×Ô¶¨Òå²Ëµ¥ÖĞµÄ¹©Çó£¬×¢²á»òÕßµÇÂ¼ºó£¬¼´¿É·¢²¼»òÕß²é¿´×îĞÂ¹©ÇóĞÅÏ¢£¡Äú·¢²¼¹©Çó£¬ÎÒÌá¹©¿Í»§¡£";
+		String content= "è¯·ç‚¹å‡»è‡ªå®šä¹‰èœå•ä¸­çš„ä¾›æ±‚ï¼Œæ³¨å†Œæˆ–è€…ç™»å½•åï¼Œå³å¯å‘å¸ƒæˆ–è€…æŸ¥çœ‹æœ€æ–°ä¾›æ±‚ä¿¡æ¯ï¼æ‚¨å‘å¸ƒä¾›æ±‚ï¼Œæˆ‘æä¾›å®¢æˆ·ã€‚";
 		txtMsg.setContent(content);
 		return txtMsg;
 	}

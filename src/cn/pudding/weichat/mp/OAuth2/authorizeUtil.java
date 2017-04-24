@@ -14,14 +14,14 @@ public class authorizeUtil {
 	private static Logger log = Logger.getLogger(authorizeUtil.class);
 
 	/**
-	 * Í¨¹ıCODE »»È¡ÓÃ»§µÄ accessTokenObject
+	 * é€šè¿‡CODE æ¢å–ç”¨æˆ·çš„ accessTokenObject
 	 * */
 	public static JSONObject getAccessTokenObj(String appId,String appSecret,String code)
 	{
 		JSONObject jsonAccessToken = null;  
 	    String requestUrl = GET_OPENID_URL.replace("APPID", appId).replace("SECRET",appSecret).replace("CODE",code);  
 	    jsonAccessToken   = HttpUtil.httpRequestJson(requestUrl, "GET", null);
-	    // Èç¹ûÇëÇó³É¹¦
+	    // å¦‚æœè¯·æ±‚æˆåŠŸ
 	    if (null != jsonAccessToken)
     	{
 		    try 
@@ -30,8 +30,8 @@ public class authorizeUtil {
 		    } 
 		    catch (JSONException e) 
 		    {  
-		        // »ñÈ¡tokenÊ§°Ü  
-		        log.error("»ñÈ¡tokenÊ§°Ü errcode:{"+jsonAccessToken.getInt("errcode")+"} errmsg:{"+jsonAccessToken.getString("errmsg")+"}");  
+		        // è·å–tokenå¤±è´¥  
+		        log.error("è·å–tokenå¤±è´¥ errcode:{"+jsonAccessToken.getInt("errcode")+"} errmsg:{"+jsonAccessToken.getString("errmsg")+"}");  
 		        jsonAccessToken = null; 
 		    } 
     	}
@@ -39,7 +39,7 @@ public class authorizeUtil {
 	}
 
 	/**
-	 * ¸ù¾İCODE »»È¡ÓÃ»§µÄ openId
+	 * æ ¹æ®CODE æ¢å–ç”¨æˆ·çš„ openId
 	 * */
 	public static String getOpenId(String appId,String appSecret,String code)
 	{
@@ -53,7 +53,7 @@ public class authorizeUtil {
 	}
 	
 	/**
-	 * ¸ù¾İCODE »»È¡ÓÃ»§µÄ accesstoken
+	 * æ ¹æ®CODE æ¢å–ç”¨æˆ·çš„ accesstoken
 	 * */
 	public static String getAccessToken(String appId,String appSecret,String code)
 	{
@@ -67,7 +67,7 @@ public class authorizeUtil {
 	}
 	
 	/**
-	 * ¸ù¾İCODE »»È¡ÓÃ»§µÄ refresh_token 
+	 * æ ¹æ®CODE æ¢å–ç”¨æˆ·çš„ refresh_token 
 	 * */
 	public static String getRefreshToken(String appId,String appSecret,String code)
 	{

@@ -1,5 +1,5 @@
 /**
- * ¶Ô¹«ÖÚÆ½Ì¨·¢ËÍ¸ø¹«ÖÚÕËºÅµÄÏûÏ¢¼Ó½âÃÜÊ¾Àı´úÂë.
+ * å¯¹å…¬ä¼—å¹³å°å‘é€ç»™å…¬ä¼—è´¦å·çš„æ¶ˆæ¯åŠ è§£å¯†ç¤ºä¾‹ä»£ç .
  * 
  * @copyright Copyright (c) 1998-2014 Tencent Inc.
  */
@@ -19,7 +19,7 @@ import org.xml.sax.InputSource;
 /**
  * XMLParse class
  *
- * Ìá¹©ÌáÈ¡ÏûÏ¢¸ñÊ½ÖĞµÄÃÜÎÄ¼°Éú³É»Ø¸´ÏûÏ¢¸ñÊ½µÄ½Ó¿Ú.
+ * æä¾›æå–æ¶ˆæ¯æ ¼å¼ä¸­çš„å¯†æ–‡åŠç”Ÿæˆå›å¤æ¶ˆæ¯æ ¼å¼çš„æ¥å£.
  */
 class XMLParse {
 
@@ -28,9 +28,9 @@ class XMLParse {
 	private static String encryptXmlFormat 	= "<xml><Encrypt><![CDATA[%1$s]]></Encrypt><MsgSignature><![CDATA[%2$s]]></MsgSignature><TimeStamp>%3$s</TimeStamp><Nonce><![CDATA[%4$s]]></Nonce></xml>";
 	
 	/**
-	 * ÌáÈ¡³öxmlÊı¾İ°üÖĞµÄ¼ÓÃÜÏûÏ¢
-	 * @param xmltext ´ıÌáÈ¡µÄxml×Ö·û´®
-	 * @return ÌáÈ¡³öµÄ¼ÓÃÜÏûÏ¢×Ö·û´®
+	 * æå–å‡ºxmlæ•°æ®åŒ…ä¸­çš„åŠ å¯†æ¶ˆæ¯
+	 * @param xmltext å¾…æå–çš„xmlå­—ç¬¦ä¸²
+	 * @return æå–å‡ºçš„åŠ å¯†æ¶ˆæ¯å­—ç¬¦ä¸²
 	 * @throws AesException 
 	 */
 	public static Object[] extract(String xmltext) throws AesException     {
@@ -56,12 +56,12 @@ class XMLParse {
 	}
 
 	/**
-	 * Éú³ÉxmlÏûÏ¢
-	 * @param encrypt ¼ÓÃÜºóµÄÏûÏ¢ÃÜÎÄ
-	 * @param signature °²È«Ç©Ãû
-	 * @param timestamp Ê±¼ä´Á
-	 * @param nonce Ëæ»ú×Ö·û´®
-	 * @return Éú³ÉµÄxml×Ö·û´®
+	 * ç”Ÿæˆxmlæ¶ˆæ¯
+	 * @param encrypt åŠ å¯†åçš„æ¶ˆæ¯å¯†æ–‡
+	 * @param signature å®‰å…¨ç­¾å
+	 * @param timestamp æ—¶é—´æˆ³
+	 * @param nonce éšæœºå­—ç¬¦ä¸²
+	 * @return ç”Ÿæˆçš„xmlå­—ç¬¦ä¸²
 	 */
 	public static String generate(String encrypt, String signature, String timestamp, String nonce) {
 		return String.format(encryptXmlFormat, encrypt, signature, timestamp, nonce);

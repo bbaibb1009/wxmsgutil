@@ -1,5 +1,5 @@
 /**
- * ¶Ô¹«ÖÚÆ½Ì¨·¢ËÍ¸ø¹«ÖÚÕËºÅµÄÏûÏ¢¼Ó½âÃÜÊ¾Àı´úÂë.
+ * å¯¹å…¬ä¼—å¹³å°å‘é€ç»™å…¬ä¼—è´¦å·çš„æ¶ˆæ¯åŠ è§£å¯†ç¤ºä¾‹ä»£ç .
  * 
  * @copyright Copyright (c) 1998-2014 Tencent Inc.
  */
@@ -7,9 +7,9 @@
 // ------------------------------------------------------------------------
 
 /**
- * Õë¶Ôorg.apache.commons.codec.binary.Base64£¬
- * ĞèÒªµ¼Èë¼Ü°ücommons-codec-1.9£¨»òcommons-codec-1.8µÈÆäËû°æ±¾£©
- * ¹Ù·½ÏÂÔØµØÖ·£ºhttp://commons.apache.org/proper/commons-codec/download_codec.cgi
+ * é’ˆå¯¹org.apache.commons.codec.binary.Base64ï¼Œ
+ * éœ€è¦å¯¼å…¥æ¶åŒ…commons-codec-1.9ï¼ˆæˆ–commons-codec-1.8ç­‰å…¶ä»–ç‰ˆæœ¬ï¼‰
+ * å®˜æ–¹ä¸‹è½½åœ°å€ï¼šhttp://commons.apache.org/proper/commons-codec/download_codec.cgi
  */
 package cn.pudding.weichat.mp.aes;
 
@@ -25,18 +25,18 @@ import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 
 /**
- * Ìá¹©½ÓÊÕºÍÍÆËÍ¸ø¹«ÖÚÆ½Ì¨ÏûÏ¢µÄ¼Ó½âÃÜ½Ó¿Ú(UTF8±àÂëµÄ×Ö·û´®).
+ * æä¾›æ¥æ”¶å’Œæ¨é€ç»™å…¬ä¼—å¹³å°æ¶ˆæ¯çš„åŠ è§£å¯†æ¥å£(UTF8ç¼–ç çš„å­—ç¬¦ä¸²).
  * <ol>
- * 	<li>µÚÈı·½»Ø¸´¼ÓÃÜÏûÏ¢¸ø¹«ÖÚÆ½Ì¨</li>
- * 	<li>µÚÈı·½ÊÕµ½¹«ÖÚÆ½Ì¨·¢ËÍµÄÏûÏ¢£¬ÑéÖ¤ÏûÏ¢µÄ°²È«ĞÔ£¬²¢¶ÔÏûÏ¢½øĞĞ½âÃÜ¡£</li>
+ * 	<li>ç¬¬ä¸‰æ–¹å›å¤åŠ å¯†æ¶ˆæ¯ç»™å…¬ä¼—å¹³å°</li>
+ * 	<li>ç¬¬ä¸‰æ–¹æ”¶åˆ°å…¬ä¼—å¹³å°å‘é€çš„æ¶ˆæ¯ï¼ŒéªŒè¯æ¶ˆæ¯çš„å®‰å…¨æ€§ï¼Œå¹¶å¯¹æ¶ˆæ¯è¿›è¡Œè§£å¯†ã€‚</li>
  * </ol>
- * ËµÃ÷£ºÒì³£java.security.InvalidKeyException:illegal Key SizeµÄ½â¾ö·½°¸
+ * è¯´æ˜ï¼šå¼‚å¸¸java.security.InvalidKeyException:illegal Key Sizeçš„è§£å†³æ–¹æ¡ˆ
  * <ol>
- * 	<li>ÔÚ¹Ù·½ÍøÕ¾ÏÂÔØJCEÎŞÏŞÖÆÈ¨ÏŞ²ßÂÔÎÄ¼ş£¨JDK7µÄÏÂÔØµØÖ·£º
+ * 	<li>åœ¨å®˜æ–¹ç½‘ç«™ä¸‹è½½JCEæ— é™åˆ¶æƒé™ç­–ç•¥æ–‡ä»¶ï¼ˆJDK7çš„ä¸‹è½½åœ°å€ï¼š
  *      http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html</li>
- * 	<li>ÏÂÔØºó½âÑ¹£¬¿ÉÒÔ¿´µ½local_policy.jarºÍUS_export_policy.jarÒÔ¼°readme.txt</li>
- * 	<li>Èç¹û°²×°ÁËJRE£¬½«Á½¸öjarÎÄ¼ş·Åµ½%JRE_HOME%\lib\securityÄ¿Â¼ÏÂ¸²¸ÇÔ­À´µÄÎÄ¼ş</li>
- * 	<li>Èç¹û°²×°ÁËJDK£¬½«Á½¸öjarÎÄ¼ş·Åµ½%JDK_HOME%\jre\lib\securityÄ¿Â¼ÏÂ¸²¸ÇÔ­À´ÎÄ¼ş</li>
+ * 	<li>ä¸‹è½½åè§£å‹ï¼Œå¯ä»¥çœ‹åˆ°local_policy.jarå’ŒUS_export_policy.jarä»¥åŠreadme.txt</li>
+ * 	<li>å¦‚æœå®‰è£…äº†JREï¼Œå°†ä¸¤ä¸ªjaræ–‡ä»¶æ”¾åˆ°%JRE_HOME%\lib\securityç›®å½•ä¸‹è¦†ç›–åŸæ¥çš„æ–‡ä»¶</li>
+ * 	<li>å¦‚æœå®‰è£…äº†JDKï¼Œå°†ä¸¤ä¸ªjaræ–‡ä»¶æ”¾åˆ°%JDK_HOME%\jre\lib\securityç›®å½•ä¸‹è¦†ç›–åŸæ¥æ–‡ä»¶</li>
  * </ol>
  */
 public class WXBizMsgCrypt {
@@ -49,12 +49,12 @@ public class WXBizMsgCrypt {
 	private static Logger log = Logger.getLogger(WXBizMsgCrypt.class);
 
 	/**
-	 * ¹¹Ôìº¯Êı
-	 * @param token ¹«ÖÚÆ½Ì¨ÉÏ£¬¿ª·¢ÕßÉèÖÃµÄtoken
-	 * @param encodingAesKey ¹«ÖÚÆ½Ì¨ÉÏ£¬¿ª·¢ÕßÉèÖÃµÄEncodingAESKey
-	 * @param appId ¹«ÖÚÆ½Ì¨appid
+	 * æ„é€ å‡½æ•°
+	 * @param token å…¬ä¼—å¹³å°ä¸Šï¼Œå¼€å‘è€…è®¾ç½®çš„token
+	 * @param encodingAesKey å…¬ä¼—å¹³å°ä¸Šï¼Œå¼€å‘è€…è®¾ç½®çš„EncodingAESKey
+	 * @param appId å…¬ä¼—å¹³å°appid
 	 * 
-	 * @throws AesException Ö´ĞĞÊ§°Ü£¬Çë²é¿´¸ÃÒì³£µÄ´íÎóÂëºÍ¾ßÌåµÄ´íÎóĞÅÏ¢
+	 * @throws AesException æ‰§è¡Œå¤±è´¥ï¼Œè¯·æŸ¥çœ‹è¯¥å¼‚å¸¸çš„é”™è¯¯ç å’Œå…·ä½“çš„é”™è¯¯ä¿¡æ¯
 	 */
 	
 	public WXBizMsgCrypt(String token, String encodingAesKey, String appId) throws AesException {
@@ -67,7 +67,7 @@ public class WXBizMsgCrypt {
 		aesKey = Base64.decodeBase64(encodingAesKey + "=");
 	}
 
-	// Éú³É4¸ö×Ö½ÚµÄÍøÂç×Ö½ÚĞò
+	// ç”Ÿæˆ4ä¸ªå­—èŠ‚çš„ç½‘ç»œå­—èŠ‚åº
 	byte[] getNetworkBytesOrder(int sourceNumber) {
 		byte[] orderBytes = new byte[4];
 		orderBytes[3] = (byte) (sourceNumber & 0xFF);
@@ -77,7 +77,7 @@ public class WXBizMsgCrypt {
 		return orderBytes;
 	}
 
-	// »¹Ô­4¸ö×Ö½ÚµÄÍøÂç×Ö½ÚĞò
+	// è¿˜åŸ4ä¸ªå­—èŠ‚çš„ç½‘ç»œå­—èŠ‚åº
 	int recoverNetworkBytesOrder(byte[] orderBytes) {
 		int sourceNumber = 0;
 		for (int i = 0; i < 4; i++) {
@@ -87,7 +87,7 @@ public class WXBizMsgCrypt {
 		return sourceNumber;
 	}
 
-	// Ëæ»úÉú³É16Î»×Ö·û´®
+	// éšæœºç”Ÿæˆ16ä½å­—ç¬¦ä¸²
 	String getRandomStr() {
 		String base = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 		Random random = new Random();
@@ -100,11 +100,11 @@ public class WXBizMsgCrypt {
 	}
 
 	/**
-	 * ¶ÔÃ÷ÎÄ½øĞĞ¼ÓÃÜ.
+	 * å¯¹æ˜æ–‡è¿›è¡ŒåŠ å¯†.
 	 * 
-	 * @param text ĞèÒª¼ÓÃÜµÄÃ÷ÎÄ
-	 * @return ¼ÓÃÜºóbase64±àÂëµÄ×Ö·û´®
-	 * @throws AesException aes¼ÓÃÜÊ§°Ü
+	 * @param text éœ€è¦åŠ å¯†çš„æ˜æ–‡
+	 * @return åŠ å¯†åbase64ç¼–ç çš„å­—ç¬¦ä¸²
+	 * @throws AesException aesåŠ å¯†å¤±è´¥
 	 */
 	String encrypt(String randomStr, String text) throws AesException {
 		ByteGroup byteCollector = new ByteGroup();
@@ -119,24 +119,24 @@ public class WXBizMsgCrypt {
 		byteCollector.addBytes(textBytes);
 		byteCollector.addBytes(appidBytes);
 
-		// ... + pad: Ê¹ÓÃ×Ô¶¨ÒåµÄÌî³ä·½Ê½¶ÔÃ÷ÎÄ½øĞĞ²¹Î»Ìî³ä
+		// ... + pad: ä½¿ç”¨è‡ªå®šä¹‰çš„å¡«å……æ–¹å¼å¯¹æ˜æ–‡è¿›è¡Œè¡¥ä½å¡«å……
 		byte[] padBytes = PKCS7Encoder.encode(byteCollector.size());
 		byteCollector.addBytes(padBytes);
 
-		// »ñµÃ×îÖÕµÄ×Ö½ÚÁ÷, Î´¼ÓÃÜ
+		// è·å¾—æœ€ç»ˆçš„å­—èŠ‚æµ, æœªåŠ å¯†
 		byte[] unencrypted = byteCollector.toBytes();
 
 		try {
-			// ÉèÖÃ¼ÓÃÜÄ£Ê½ÎªAESµÄCBCÄ£Ê½
+			// è®¾ç½®åŠ å¯†æ¨¡å¼ä¸ºAESçš„CBCæ¨¡å¼
 			Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
 			SecretKeySpec keySpec = new SecretKeySpec(aesKey, "AES");
 			IvParameterSpec iv = new IvParameterSpec(aesKey, 0, 16);
 			cipher.init(Cipher.ENCRYPT_MODE, keySpec, iv);
 
-			// ¼ÓÃÜ
+			// åŠ å¯†
 			byte[] encrypted = cipher.doFinal(unencrypted);
 
-			// Ê¹ÓÃBASE64¶Ô¼ÓÃÜºóµÄ×Ö·û´®½øĞĞ±àÂë
+			// ä½¿ç”¨BASE64å¯¹åŠ å¯†åçš„å­—ç¬¦ä¸²è¿›è¡Œç¼–ç 
 			String base64Encrypted = base64.encodeToString(encrypted);
 
 			return base64Encrypted;
@@ -147,25 +147,25 @@ public class WXBizMsgCrypt {
 	}
 
 	/**
-	 * ¶ÔÃÜÎÄ½øĞĞ½âÃÜ.
+	 * å¯¹å¯†æ–‡è¿›è¡Œè§£å¯†.
 	 * 
-	 * @param text ĞèÒª½âÃÜµÄÃÜÎÄ
-	 * @return ½âÃÜµÃµ½µÄÃ÷ÎÄ
-	 * @throws AesException aes½âÃÜÊ§°Ü
+	 * @param text éœ€è¦è§£å¯†çš„å¯†æ–‡
+	 * @return è§£å¯†å¾—åˆ°çš„æ˜æ–‡
+	 * @throws AesException aesè§£å¯†å¤±è´¥
 	 */
 	String decrypt(String text) throws AesException {
 		byte[] original;
 		try {
-			// ÉèÖÃ½âÃÜÄ£Ê½ÎªAESµÄCBCÄ£Ê½
+			// è®¾ç½®è§£å¯†æ¨¡å¼ä¸ºAESçš„CBCæ¨¡å¼
 			Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
 			SecretKeySpec key_spec = new SecretKeySpec(aesKey, "AES");
 			IvParameterSpec iv = new IvParameterSpec(Arrays.copyOfRange(aesKey, 0, 16));
 			cipher.init(Cipher.DECRYPT_MODE, key_spec, iv);
 
-			// Ê¹ÓÃBASE64¶ÔÃÜÎÄ½øĞĞ½âÂë
+			// ä½¿ç”¨BASE64å¯¹å¯†æ–‡è¿›è¡Œè§£ç 
 			byte[] encrypted = Base64.decodeBase64(text);
 
-			// ½âÃÜ
+			// è§£å¯†
 			original = cipher.doFinal(encrypted);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -174,9 +174,9 @@ public class WXBizMsgCrypt {
 
 		String xmlContent, from_appid;
 		try {
-			// È¥³ı²¹Î»×Ö·û
+			// å»é™¤è¡¥ä½å­—ç¬¦
 			byte[] bytes = PKCS7Encoder.decode(original);
-			// ·ÖÀë16Î»Ëæ»ú×Ö·û´®,ÍøÂç×Ö½ÚĞòºÍAppId
+			// åˆ†ç¦»16ä½éšæœºå­—ç¬¦ä¸²,ç½‘ç»œå­—èŠ‚åºå’ŒAppId
 			byte[] networkOrder = Arrays.copyOfRange(bytes, 16, 20);
 			int xmlLength = recoverNetworkBytesOrder(networkOrder);
 
@@ -189,10 +189,10 @@ public class WXBizMsgCrypt {
 		}
 
 		
-		// appid²»ÏàÍ¬µÄÇé¿ö
+		// appidä¸ç›¸åŒçš„æƒ…å†µ
 		if (!from_appid.equals(appId)) {
-//			log.error("µÚÈı·½ÊÕµ½URLÖĞµÄappId£º" + appId);
-//			log.error("ÎÒ·½³ÌĞòËã³öÀ´µÄfrom_appid£º" + from_appid);
+//			log.error("ç¬¬ä¸‰æ–¹æ”¶åˆ°URLä¸­çš„appIdï¼š" + appId);
+//			log.error("æˆ‘æ–¹ç¨‹åºç®—å‡ºæ¥çš„from_appidï¼š" + from_appid);
 			throw new AesException(AesException.ValidateAppidError);
 		}
 		return xmlContent;
@@ -214,29 +214,29 @@ public class WXBizMsgCrypt {
 	}
 
 	/**
-	 * ½«¹«ÖÚÆ½Ì¨»Ø¸´ÓÃ»§µÄÏûÏ¢¼ÓÃÜ´ò°ü.
+	 * å°†å…¬ä¼—å¹³å°å›å¤ç”¨æˆ·çš„æ¶ˆæ¯åŠ å¯†æ‰“åŒ….
 	 * <ol>
-	 * 	<li>¶ÔÒª·¢ËÍµÄÏûÏ¢½øĞĞAES-CBC¼ÓÃÜ</li>
-	 * 	<li>Éú³É°²È«Ç©Ãû</li>
-	 * 	<li>½«ÏûÏ¢ÃÜÎÄºÍ°²È«Ç©Ãû´ò°ü³Éxml¸ñÊ½</li>
+	 * 	<li>å¯¹è¦å‘é€çš„æ¶ˆæ¯è¿›è¡ŒAES-CBCåŠ å¯†</li>
+	 * 	<li>ç”Ÿæˆå®‰å…¨ç­¾å</li>
+	 * 	<li>å°†æ¶ˆæ¯å¯†æ–‡å’Œå®‰å…¨ç­¾åæ‰“åŒ…æˆxmlæ ¼å¼</li>
 	 * </ol>
 	 * 
-	 * @param replyMsg ¹«ÖÚÆ½Ì¨´ı»Ø¸´ÓÃ»§µÄÏûÏ¢£¬xml¸ñÊ½µÄ×Ö·û´®
-	 * @param timeStamp Ê±¼ä´Á£¬¿ÉÒÔ×Ô¼ºÉú³É£¬Ò²¿ÉÒÔÓÃURL²ÎÊıµÄtimestamp
-	 * @param nonce Ëæ»ú´®£¬¿ÉÒÔ×Ô¼ºÉú³É£¬Ò²¿ÉÒÔÓÃURL²ÎÊıµÄnonce
-	 * @return ¼ÓÃÜºóµÄ¿ÉÒÔÖ±½Ó»Ø¸´ÓÃ»§µÄÃÜÎÄ£¬°üÀ¨msg_signature, timestamp, nonce, encryptµÄxml¸ñÊ½µÄ×Ö·û´®
-	 * @throws AesException Ö´ĞĞÊ§°Ü£¬Çë²é¿´¸ÃÒì³£µÄ´íÎóÂëºÍ¾ßÌåµÄ´íÎóĞÅÏ¢
+	 * @param replyMsg å…¬ä¼—å¹³å°å¾…å›å¤ç”¨æˆ·çš„æ¶ˆæ¯ï¼Œxmlæ ¼å¼çš„å­—ç¬¦ä¸²
+	 * @param timeStamp æ—¶é—´æˆ³ï¼Œå¯ä»¥è‡ªå·±ç”Ÿæˆï¼Œä¹Ÿå¯ä»¥ç”¨URLå‚æ•°çš„timestamp
+	 * @param nonce éšæœºä¸²ï¼Œå¯ä»¥è‡ªå·±ç”Ÿæˆï¼Œä¹Ÿå¯ä»¥ç”¨URLå‚æ•°çš„nonce
+	 * @return åŠ å¯†åçš„å¯ä»¥ç›´æ¥å›å¤ç”¨æˆ·çš„å¯†æ–‡ï¼ŒåŒ…æ‹¬msg_signature, timestamp, nonce, encryptçš„xmlæ ¼å¼çš„å­—ç¬¦ä¸²
+	 * @throws AesException æ‰§è¡Œå¤±è´¥ï¼Œè¯·æŸ¥çœ‹è¯¥å¼‚å¸¸çš„é”™è¯¯ç å’Œå…·ä½“çš„é”™è¯¯ä¿¡æ¯
 	 */
 	public String encryptMsg(String replyMsg, String timeStamp, String nonce) throws AesException {
-		// ¼ÓÃÜ
+		// åŠ å¯†
 		String encrypt = encrypt(getRandomStr(), replyMsg);
-		// Éú³É°²È«Ç©Ãû
+		// ç”Ÿæˆå®‰å…¨ç­¾å
 		if (timeStamp == "") {
 			timeStamp = Long.toString(System.currentTimeMillis());
 		}
 		String signature = SHA1.getSHA1(token, timeStamp, nonce, encrypt);
-		// System.out.println("·¢ËÍ¸øÆ½Ì¨µÄÇ©ÃûÊÇ: " + signature[1].toString());
-		// Éú³É·¢ËÍµÄxml
+		// System.out.println("å‘é€ç»™å¹³å°çš„ç­¾åæ˜¯: " + signature[1].toString());
+		// ç”Ÿæˆå‘é€çš„xml
 		String result = XMLParse.generate(encrypt, signature, timeStamp, nonce);
 		return result;
 	}
@@ -245,19 +245,19 @@ public class WXBizMsgCrypt {
 	
 
 	/**
-	 * ¼ìÑéÏûÏ¢µÄÕæÊµĞÔ£¬²¢ÇÒ»ñÈ¡½âÃÜºóµÄÃ÷ÎÄ.
+	 * æ£€éªŒæ¶ˆæ¯çš„çœŸå®æ€§ï¼Œå¹¶ä¸”è·å–è§£å¯†åçš„æ˜æ–‡.
 	 * <ol>
-	 * 	<li>ÀûÓÃÊÕµ½µÄÃÜÎÄÉú³É°²È«Ç©Ãû£¬½øĞĞÇ©ÃûÑéÖ¤</li>
-	 * 	<li>ÈôÑéÖ¤Í¨¹ı£¬ÔòÌáÈ¡xmlÖĞµÄ¼ÓÃÜÏûÏ¢</li>
-	 * 	<li>¶ÔÏûÏ¢½øĞĞ½âÃÜ</li>
+	 * 	<li>åˆ©ç”¨æ”¶åˆ°çš„å¯†æ–‡ç”Ÿæˆå®‰å…¨ç­¾åï¼Œè¿›è¡Œç­¾åéªŒè¯</li>
+	 * 	<li>è‹¥éªŒè¯é€šè¿‡ï¼Œåˆ™æå–xmlä¸­çš„åŠ å¯†æ¶ˆæ¯</li>
+	 * 	<li>å¯¹æ¶ˆæ¯è¿›è¡Œè§£å¯†</li>
 	 * </ol>
 	 * 
-	 * @param msgSignature Ç©Ãû´®£¬¶ÔÓ¦URL²ÎÊıµÄmsg_signature
-	 * @param timeStamp Ê±¼ä´Á£¬¶ÔÓ¦URL²ÎÊıµÄtimestamp
-	 * @param nonce Ëæ»ú´®£¬¶ÔÓ¦URL²ÎÊıµÄnonce
-	 * @param postData ÃÜÎÄ£¬¶ÔÓ¦POSTÇëÇóµÄÊı¾İ
-	 * @return ½âÃÜºóµÄÔ­ÎÄ
-	 * @throws AesException Ö´ĞĞÊ§°Ü£¬Çë²é¿´¸ÃÒì³£µÄ´íÎóÂëºÍ¾ßÌåµÄ´íÎóĞÅÏ¢
+	 * @param msgSignature ç­¾åä¸²ï¼Œå¯¹åº”URLå‚æ•°çš„msg_signature
+	 * @param timeStamp æ—¶é—´æˆ³ï¼Œå¯¹åº”URLå‚æ•°çš„timestamp
+	 * @param nonce éšæœºä¸²ï¼Œå¯¹åº”URLå‚æ•°çš„nonce
+	 * @param postData å¯†æ–‡ï¼Œå¯¹åº”POSTè¯·æ±‚çš„æ•°æ®
+	 * @return è§£å¯†åçš„åŸæ–‡
+	 * @throws AesException æ‰§è¡Œå¤±è´¥ï¼Œè¯·æŸ¥çœ‹è¯¥å¼‚å¸¸çš„é”™è¯¯ç å’Œå…·ä½“çš„é”™è¯¯ä¿¡æ¯
 	 */
 	public String decryptMsg(String msgSignature, String timeStamp, String nonce, String postData)
 			throws AesException {
@@ -268,13 +268,13 @@ public class WXBizMsgCrypt {
 	}
 
 	/**
-	 * ÑéÖ¤URL
-	 * @param msgSignature Ç©Ãû´®£¬¶ÔÓ¦URL²ÎÊıµÄmsg_signature
-	 * @param timeStamp Ê±¼ä´Á£¬¶ÔÓ¦URL²ÎÊıµÄtimestamp
-	 * @param nonce Ëæ»ú´®£¬¶ÔÓ¦URL²ÎÊıµÄnonce
-	 * @param echoStr Ëæ»ú´®£¬¶ÔÓ¦URL²ÎÊıµÄechostr
-	 * @return ½âÃÜÖ®ºóµÄechostr
-	 * @throws AesException Ö´ĞĞÊ§°Ü£¬Çë²é¿´¸ÃÒì³£µÄ´íÎóÂëºÍ¾ßÌåµÄ´íÎóĞÅÏ¢
+	 * éªŒè¯URL
+	 * @param msgSignature ç­¾åä¸²ï¼Œå¯¹åº”URLå‚æ•°çš„msg_signature
+	 * @param timeStamp æ—¶é—´æˆ³ï¼Œå¯¹åº”URLå‚æ•°çš„timestamp
+	 * @param nonce éšæœºä¸²ï¼Œå¯¹åº”URLå‚æ•°çš„nonce
+	 * @param echoStr éšæœºä¸²ï¼Œå¯¹åº”URLå‚æ•°çš„echostr
+	 * @return è§£å¯†ä¹‹åçš„echostr
+	 * @throws AesException æ‰§è¡Œå¤±è´¥ï¼Œè¯·æŸ¥çœ‹è¯¥å¼‚å¸¸çš„é”™è¯¯ç å’Œå…·ä½“çš„é”™è¯¯ä¿¡æ¯
 	 */
 	public String verifyUrl(String msgSignature, String timeStamp, String nonce, String echoStr)	throws AesException 
 	{

@@ -3,7 +3,7 @@ import net.sf.json.JSONObject;
 import cn.pudding.weichat.http.HttpUtil;
 public class UserUtil 
 {
-	//获取用户基本信息(GET)  
+	//鑾峰彇鐢ㄦ埛鍩烘湰淇℃伅(GET)  
     public static String user_info_url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN";  
 
 	public static JSONObject getUserInfo(String accessToken,String openId)

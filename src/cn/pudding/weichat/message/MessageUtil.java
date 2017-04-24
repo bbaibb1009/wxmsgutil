@@ -33,7 +33,7 @@ public class MessageUtil {
     private static Logger log = Logger.getLogger(MessageUtil.class);
 
     /** 
-     * ½âÎöÎ¢ĞÅ·¢À´µÄÃ÷ÎÄÇëÇó£¨XML£© InputStream -> map
+     * è§£æå¾®ä¿¡å‘æ¥çš„æ˜æ–‡è¯·æ±‚ï¼ˆXMLï¼‰ InputStream -> map
      * @author dingjie
      * @param request 
      * @return Map<String, String>
@@ -42,22 +42,22 @@ public class MessageUtil {
     @SuppressWarnings("unchecked")  
     public static Map<String, String> parseXmlRaw(InputStream inputStream,String encrypt_type,String msg_signature,String timestamp,String nonce,String token,String EncodingAESKey,String appId) {  
     	 
-        // ½«½âÎö½á¹û´æ´¢ÔÚHashMapÖĞ  
+        // å°†è§£æç»“æœå­˜å‚¨åœ¨HashMapä¸­  
         Map<String, String> map = new HashMap<String, String>();  
         try
     	{
-	        // ¶ÁÈ¡ÊäÈëÁ÷  
+	        // è¯»å–è¾“å…¥æµ  
 	        SAXReader reader = new SAXReader();  
 	        Document document = reader.read(inputStream);
-	        // ´ÓrequestÖĞÈ¡µÃÊäÈëÁ÷  
-	        // µÃµ½xml¸ùÔªËØ  
+	        // ä»requestä¸­å–å¾—è¾“å…¥æµ  
+	        // å¾—åˆ°xmlæ ¹å…ƒç´   
 	        Element root = document.getRootElement();  
-	        // µÃµ½¸ùÔªËØµÄËùÓĞ×Ó½Úµã  
+	        // å¾—åˆ°æ ¹å…ƒç´ çš„æ‰€æœ‰å­èŠ‚ç‚¹  
 	        List<Element> elementList = root.elements();  
-	        // ±éÀúËùÓĞ×Ó½Úµã  
+	        // éå†æ‰€æœ‰å­èŠ‚ç‚¹  
 	        for (Element e : elementList)  
 	            map.put(e.getName(),e.getText());  
-	        // ÊÍ·Å×ÊÔ´  
+	        // é‡Šæ”¾èµ„æº  
 	        inputStream.close();  
 	        inputStream = null;  
     	}
@@ -74,7 +74,7 @@ public class MessageUtil {
     
     
     /** 
-     * ½âÎöÎ¢ĞÅ·¢À´µÄÃÜÎÄÇëÇó£¨XML£© InputStream -> map
+     * è§£æå¾®ä¿¡å‘æ¥çš„å¯†æ–‡è¯·æ±‚ï¼ˆXMLï¼‰ InputStream -> map
      * @author dingjie
      * @param request 
      * @return Map<String, String>
@@ -84,27 +84,27 @@ public class MessageUtil {
      */  
     @SuppressWarnings("unchecked")  
     public static Map<String, String> parseXmlAes(InputStream inputStream,String encrypt_type,String msg_signature,String timestamp,String nonce,String token,String EncodingAESKey,String appId)  {  
-    	// ½«½âÎö½á¹û´æ´¢ÔÚHashMapÖĞ  
+    	// å°†è§£æç»“æœå­˜å‚¨åœ¨HashMapä¸­  
         Map<String, String> map = new HashMap<String, String>();  
     	try
     	{
-    		// ¶ÁÈ¡ÊäÈëÁ÷  
+    		// è¯»å–è¾“å…¥æµ  
     	    SAXReader reader = new SAXReader();  
     	    Document document = reader.read(inputStream);
-    	    // ´ÓrequestÖĞÈ¡µÃÊäÈëÁ÷  
+    	    // ä»requestä¸­å–å¾—è¾“å…¥æµ  
     	    String encryptStr = document.asXML();
-    	    // µÃµ½¸ùÔªËØµÄËùÓĞ×Ó½Úµã  
+    	    // å¾—åˆ°æ ¹å…ƒç´ çš„æ‰€æœ‰å­èŠ‚ç‚¹  
     	    WXBizMsgCrypt pc = new WXBizMsgCrypt(token,EncodingAESKey, appId);
     	    encryptStr = pc.decryptMsg(msg_signature,timestamp,nonce,encryptStr);
     		document = DocumentHelper.parseText(encryptStr);
-    		// µÃµ½xml¸ùÔªËØ  
+    		// å¾—åˆ°xmlæ ¹å…ƒç´   
     	    Element root = document.getRootElement();  
-    	    // µÃµ½¸ùÔªËØµÄËùÓĞ×Ó½Úµã  
+    	    // å¾—åˆ°æ ¹å…ƒç´ çš„æ‰€æœ‰å­èŠ‚ç‚¹  
     		List elements = root.elements();
     		List<Element> elementList =  elements;
     	    for (Element e : elementList)  
     	    	map.put(e.getName(), e.getText());  
-    	    // ÊÍ·Å×ÊÔ´  
+    	    // é‡Šæ”¾èµ„æº  
     	    inputStream.close();  
     	    inputStream = null;  
     	}
@@ -124,7 +124,7 @@ public class MessageUtil {
     }
     
     /**
-     * ¼ÓÃÜºó¹¹³ÉĞÂµÄXML String->xml
+     * åŠ å¯†åæ„æˆæ–°çš„XML String->xml
      * @author dingjie
      * @throws DocumentException 
      * @throws AesException 
@@ -140,9 +140,9 @@ public class MessageUtil {
     
 
     /** 
-     * ÎÄ±¾ÏûÏ¢¶ÔÏó×ª»»³Éxml 
+     * æ–‡æœ¬æ¶ˆæ¯å¯¹è±¡è½¬æ¢æˆxml 
      * @author dingjie 
-     * @param  textMessage ÎÄ±¾ÏûÏ¢¶ÔÏó 
+     * @param  textMessage æ–‡æœ¬æ¶ˆæ¯å¯¹è±¡ 
      * @return xml 
      */  
     public static String textMessageToXml(WcWeiTextMsgResp textMessage) {  
@@ -152,9 +152,9 @@ public class MessageUtil {
     
     
     /** 
-     * ÆóÒµºÅÎÄ±¾ÏûÏ¢¶ÔÏó×ª»»³Éxml 
+     * ä¼ä¸šå·æ–‡æœ¬æ¶ˆæ¯å¯¹è±¡è½¬æ¢æˆxml 
      * @author dingjie 
-     * @param  textMessage ÎÄ±¾ÏûÏ¢¶ÔÏó 
+     * @param  textMessage æ–‡æœ¬æ¶ˆæ¯å¯¹è±¡ 
      * @return xml 
      */  
     public static String textMessageToXml(WcWeiQiyehaoMsgResp textMessage) {  
@@ -164,9 +164,9 @@ public class MessageUtil {
     
     
     /** 
-     * Object¶ÔÏó×ª»»³Éxml 
+     * Objectå¯¹è±¡è½¬æ¢æˆxml 
      *  
-     * @param objMessage Object¶ÔÏó 
+     * @param objMessage Objectå¯¹è±¡ 
      * @return xml 
      */  
     public static String objToXml(Object obj) {  
@@ -175,9 +175,9 @@ public class MessageUtil {
     }
     
     /**
-     * LzWeiBaseMsgResp ¶ÔÏó×ª»»³É xml
+     * LzWeiBaseMsgResp å¯¹è±¡è½¬æ¢æˆ xml
      * @author dingjie
-     * @param  baseMessage resp»ù´¡ÀàÏûÏ¢¶ÔÏó
+     * @param  baseMessage respåŸºç¡€ç±»æ¶ˆæ¯å¯¹è±¡
      * @return xml
      * @throws AesException 
      * @throws DocumentException 
@@ -205,14 +205,14 @@ public class MessageUtil {
     	catch(DocumentException e)
     	{
     		WcWeiTextMsgResp textMsg = new WcWeiTextMsgResp(baseMessage);
-    		textMsg.setContent("XML½âÎö¸ñÊ½´íÎó:"+e.getMessage());
+    		textMsg.setContent("XMLè§£ææ ¼å¼é”™è¯¯:"+e.getMessage());
     		returnMsg = xstream.toXML(textMsg);
     		return returnMsg;
     	}
     	catch(AesException e)
     	{
     		WcWeiTextMsgResp textMsg = new WcWeiTextMsgResp(baseMessage);
-    		textMsg.setContent("Î¢ĞÅ½âÃÜ/¼ÓÃÜ´íÎó:"+e.getMessage()+"´íÎó´úÂë:"+e.getCode());
+    		textMsg.setContent("å¾®ä¿¡è§£å¯†/åŠ å¯†é”™è¯¯:"+e.getMessage()+"é”™è¯¯ä»£ç :"+e.getCode());
     		returnMsg = xstream.toXML(textMsg);
     		return returnMsg;
     	}
@@ -220,14 +220,14 @@ public class MessageUtil {
         
   
     /** 
-     * À©Õ¹xstream£¬Ê¹ÆäÖ§³ÖCDATA¿é 
+     * æ‰©å±•xstreamï¼Œä½¿å…¶æ”¯æŒCDATAå— 
      * @author dingjie 
      * @date 2013-05-19 
      */  
     private static XStream xstream = new XStream(new XppDriver() {  
         public HierarchicalStreamWriter createWriter(Writer out) {  
             return new PrettyPrintWriter(out) {  
-                // ¶ÔËùÓĞxml½ÚµãµÄ×ª»»¶¼Ôö¼ÓCDATA±ê¼Ç  
+                // å¯¹æ‰€æœ‰xmlèŠ‚ç‚¹çš„è½¬æ¢éƒ½å¢åŠ CDATAæ ‡è®°  
                 boolean cdata = true;  
                 @SuppressWarnings("unchecked")  
                 public void startNode(String name, Class clazz) {  
@@ -250,17 +250,17 @@ public class MessageUtil {
     
     public static Map<String,String> encryptToMap(String encrypt,String token,String EncodingAESKey,String appId)
     {
-    	// ½«½âÎö½á¹û´æ´¢ÔÚHashMapÖĞ  
+    	// å°†è§£æç»“æœå­˜å‚¨åœ¨HashMapä¸­  
         Map<String, String> map = new HashMap<String, String>();  
     	try
     	{
     		WXBizMsgCrypt pc = new WXBizMsgCrypt(token,EncodingAESKey, appId);
     		String deCrypt = pc.decryptMsg(encrypt);
-    		// ¶ÁÈ¡ÊäÈëÁ÷  
+    		// è¯»å–è¾“å…¥æµ  
             Document document = DocumentHelper.parseText(deCrypt);   
-    		// µÃµ½xml¸ùÔªËØ  
+    		// å¾—åˆ°xmlæ ¹å…ƒç´   
     	    Element root = document.getRootElement();  
-    	    // µÃµ½¸ùÔªËØµÄËùÓĞ×Ó½Úµã  
+    	    // å¾—åˆ°æ ¹å…ƒç´ çš„æ‰€æœ‰å­èŠ‚ç‚¹  
     		List elements = root.elements();
     		List<Element> elementList =  elements;
     	    for (Element e : elementList)  

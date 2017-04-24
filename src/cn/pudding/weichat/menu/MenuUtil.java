@@ -3,11 +3,11 @@ import net.sf.json.JSONObject;
 import cn.pudding.weichat.http.HttpUtil;
 public class MenuUtil 
 {
-	//菜单创建(POST)  
+	//鑿滃崟鍒涘缓(POST)  
     public static String menu_create_url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN";  
-    //菜单查询(GET)  
+    //鑿滃崟鏌ヨ(GET)  
     public static String menu_get_url    = "https://api.weixin.qq.com/cgi-bin/menu/get?access_token=ACCESS_TOKEN";  
-    //菜单删除(GET)  
+    //鑿滃崟鍒犻櫎(GET)  
     public static String menu_delete_url = "https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=ACCESS_TOKEN";  
     
 	public static String createMenu(String accessToken,String jsonStr)

@@ -31,7 +31,7 @@ public class wxPayUtil {
         parameters.put("trade_type", trade_type);  
         
         StringBuffer sb = new StringBuffer();  
-        Set es = parameters.entrySet();//ËùÓĞ²ÎÓë´«²ÎµÄ²ÎÊı°´ÕÕaccsiiÅÅĞò£¨ÉıĞò£©  
+        Set es = parameters.entrySet();//æ‰€æœ‰å‚ä¸ä¼ å‚çš„å‚æ•°æŒ‰ç…§accsiiæ’åºï¼ˆå‡åºï¼‰  
         Iterator it = es.iterator();  
         while(it.hasNext()) {  
             Map.Entry entry = (Map.Entry)it.next();  
@@ -52,9 +52,9 @@ public class wxPayUtil {
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			sign = "±àÂë´íÎó";
+			sign = "ç¼–ç é”™è¯¯";
 		}  
-		log.info("Ëã³öÀ´µÄsign:"+sign);
+		log.info("ç®—å‡ºæ¥çš„sign:"+sign);
         return sign;  
 	}
 	
@@ -73,7 +73,7 @@ public class wxPayUtil {
         parameters.put("trade_type", trade_type);  
         
         StringBuffer sb = new StringBuffer();  
-        Set es = parameters.entrySet();//ËùÓĞ²ÎÓë´«²ÎµÄ²ÎÊı°´ÕÕaccsiiÅÅĞò£¨ÉıĞò£©  
+        Set es = parameters.entrySet();//æ‰€æœ‰å‚ä¸ä¼ å‚çš„å‚æ•°æŒ‰ç…§accsiiæ’åºï¼ˆå‡åºï¼‰  
         Iterator it = es.iterator();  
         while(it.hasNext()) {  
             Map.Entry entry = (Map.Entry)it.next();  
@@ -96,9 +96,9 @@ public class wxPayUtil {
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			sign = "±àÂë´íÎó";
+			sign = "ç¼–ç é”™è¯¯";
 		}  
-        log.info("Ëã³öÀ´µÄsign:"+sign);
+        log.info("ç®—å‡ºæ¥çš„sign:"+sign);
         return sign;  
 	}
 	
@@ -106,7 +106,7 @@ public class wxPayUtil {
 	{
 		SortedMap<Object,Object> parameters = new TreeMap<Object,Object>();  
         
-		Set es1 = map.entrySet();//ËùÓĞ²ÎÓë´«²ÎµÄ²ÎÊı°´ÕÕaccsiiÅÅĞò£¨ÉıĞò£©  
+		Set es1 = map.entrySet();//æ‰€æœ‰å‚ä¸ä¼ å‚çš„å‚æ•°æŒ‰ç…§accsiiæ’åºï¼ˆå‡åºï¼‰  
 	    Iterator it1 = es1.iterator();  
 	    while(it1.hasNext()) {  
 	    	Map.Entry entry1 = (Map.Entry)it1.next();  
@@ -116,7 +116,7 @@ public class wxPayUtil {
 	    }
 	    
         StringBuffer sb = new StringBuffer();  
-        Set es = parameters.entrySet();//ËùÓĞ²ÎÓë´«²ÎµÄ²ÎÊı°´ÕÕaccsiiÅÅĞò£¨ÉıĞò£©  
+        Set es = parameters.entrySet();//æ‰€æœ‰å‚ä¸ä¼ å‚çš„å‚æ•°æŒ‰ç…§accsiiæ’åºï¼ˆå‡åºï¼‰  
         Iterator it = es.iterator();  
         while(it.hasNext()) {  
             Map.Entry entry = (Map.Entry)it.next();  
@@ -128,7 +128,7 @@ public class wxPayUtil {
             }  
         }  
         sb.append("key=" + key); 
-        log.info("url´®:"+sb);
+        log.info("urlä¸²:"+sb);
         String sign="";
 		try 
 		{
@@ -138,9 +138,9 @@ public class wxPayUtil {
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			sign = "±àÂë´íÎó";
+			sign = "ç¼–ç é”™è¯¯";
 		}  
-        log.info("Ëã³öÀ´µÄsign:"+sign);
+        log.info("ç®—å‡ºæ¥çš„sign:"+sign);
         return sign;  
 		
 	}
@@ -171,9 +171,9 @@ public class wxPayUtil {
 //		{
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
-//			sign = "±àÂë´íÎó";
+//			sign = "ç¼–ç é”™è¯¯";
 //		}  
-//        System.out.println("¼ÓÃÜºóµÄ:"+sign);
+//        System.out.println("åŠ å¯†åçš„:"+sign);
         
         
 //        <result_code></result_code><sign>2318663E8F55B1BBE9DDACD8F9371ECF</sign>
@@ -215,8 +215,8 @@ public class wxPayUtil {
         
         Map<String,Object> map2 = new HashMap<String,Object>();
         String appid1 			=	"wx2ba0ce17184b93b7";
-        String attach1			=	"²âÊÔ";
-        String body1				=	"²âÊÔ½Ó¿Ú";
+        String attach1			=	"æµ‹è¯•";
+        String body1				=	"æµ‹è¯•æ¥å£";
         String mch_id1			=	"1237186802";
         String nonce_str1		=	"4gpKmn5yIJ4eTfyE";
         String notify_url1		=	"http://info.oilchem.net/prowxpay/notify";

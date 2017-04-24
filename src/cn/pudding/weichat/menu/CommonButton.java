@@ -1,7 +1,7 @@
 //:CommonButton.java
 package cn.pudding.weichat.menu;
 /** 
- * ÆÕÍ¨°´Å¥£¨×Ó°´Å¥£© 
+ * æ™®é€šæŒ‰é’®
  * @author dingjie 
  * @date 2014-12-06
  */ 

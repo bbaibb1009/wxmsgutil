@@ -1,5 +1,5 @@
 /**
- * ¶Ô¹«ÖÚÆ½Ì¨·¢ËÍ¸ø¹«ÖÚÕËºÅµÄÏûÏ¢¼Ó½âÃÜÊ¾Àı´úÂë.
+ * å¯¹å…¬ä¼—å¹³å°å‘é€ç»™å…¬ä¼—è´¦å·çš„æ¶ˆæ¯åŠ è§£å¯†ç¤ºä¾‹ä»£ç .
  * 
  * @copyright Copyright (c) 1998-2014 Tencent Inc.
  */
@@ -12,25 +12,25 @@ import java.nio.charset.Charset;
 import java.util.Arrays;
 
 /**
- * Ìá¹©»ùÓÚPKCS7Ëã·¨µÄ¼Ó½âÃÜ½Ó¿Ú.
+ * æä¾›åŸºäºPKCS7ç®—æ³•çš„åŠ è§£å¯†æ¥å£.
  */
 class PKCS7Encoder {
 	static Charset CHARSET = Charset.forName("utf-8");
 	static int BLOCK_SIZE = 32;
 
 	/**
-	 * »ñµÃ¶ÔÃ÷ÎÄ½øĞĞ²¹Î»Ìî³äµÄ×Ö½Ú.
+	 * è·å¾—å¯¹æ˜æ–‡è¿›è¡Œè¡¥ä½å¡«å……çš„å­—èŠ‚.
 	 * 
-	 * @param count ĞèÒª½øĞĞÌî³ä²¹Î»²Ù×÷µÄÃ÷ÎÄ×Ö½Ú¸öÊı
-	 * @return ²¹ÆëÓÃµÄ×Ö½ÚÊı×é
+	 * @param count éœ€è¦è¿›è¡Œå¡«å……è¡¥ä½æ“ä½œçš„æ˜æ–‡å­—èŠ‚ä¸ªæ•°
+	 * @return è¡¥é½ç”¨çš„å­—èŠ‚æ•°ç»„
 	 */
 	static byte[] encode(int count) {
-		// ¼ÆËãĞèÒªÌî³äµÄÎ»Êı
+		// è®¡ç®—éœ€è¦å¡«å……çš„ä½æ•°
 		int amountToPad = BLOCK_SIZE - (count % BLOCK_SIZE);
 		if (amountToPad == 0) {
 			amountToPad = BLOCK_SIZE;
 		}
-		// »ñµÃ²¹Î»ËùÓÃµÄ×Ö·û
+		// è·å¾—è¡¥ä½æ‰€ç”¨çš„å­—ç¬¦
 		char padChr = chr(amountToPad);
 		String tmp = new String();
 		for (int index = 0; index < amountToPad; index++) {
@@ -40,10 +40,10 @@ class PKCS7Encoder {
 	}
 
 	/**
-	 * É¾³ı½âÃÜºóÃ÷ÎÄµÄ²¹Î»×Ö·û
+	 * åˆ é™¤è§£å¯†åæ˜æ–‡çš„è¡¥ä½å­—ç¬¦
 	 * 
-	 * @param decrypted ½âÃÜºóµÄÃ÷ÎÄ
-	 * @return É¾³ı²¹Î»×Ö·ûºóµÄÃ÷ÎÄ
+	 * @param decrypted è§£å¯†åçš„æ˜æ–‡
+	 * @return åˆ é™¤è¡¥ä½å­—ç¬¦åçš„æ˜æ–‡
 	 */
 	static byte[] decode(byte[] decrypted) {
 		int pad = (int) decrypted[decrypted.length - 1];
@@ -54,10 +54,10 @@ class PKCS7Encoder {
 	}
 
 	/**
-	 * ½«Êı×Ö×ª»¯³ÉASCIIÂë¶ÔÓ¦µÄ×Ö·û£¬ÓÃÓÚ¶ÔÃ÷ÎÄ½øĞĞ²¹Âë
+	 * å°†æ•°å­—è½¬åŒ–æˆASCIIç å¯¹åº”çš„å­—ç¬¦ï¼Œç”¨äºå¯¹æ˜æ–‡è¿›è¡Œè¡¥ç 
 	 * 
-	 * @param a ĞèÒª×ª»¯µÄÊı×Ö
-	 * @return ×ª»¯µÃµ½µÄ×Ö·û
+	 * @param a éœ€è¦è½¬åŒ–çš„æ•°å­—
+	 * @return è½¬åŒ–å¾—åˆ°çš„å­—ç¬¦
 	 */
 	static char chr(int a) {
 		byte target = (byte) (a & 0xFF);

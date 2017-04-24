@@ -1,7 +1,7 @@
 //:ComplexButton.java
 package cn.pudding.weichat.menu;
 /** 
- * ¸´ÔÓ°´Å¥£¨¸¸°´Å¥£© 
+ * æŒ‰é’®ç»„
  * @author dingj 
  * @date 2014-12-06 
  */  

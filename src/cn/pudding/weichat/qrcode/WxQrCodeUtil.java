@@ -10,10 +10,10 @@ public class WxQrCodeUtil {
 	private static 	Logger log = Logger.getLogger(WxQrCodeUtil.class);
 	private static 	Integer expireSeconds = 604800;
 	private static  String action_name_linshi = "QR_SCENE";
-	// ´´½¨¶şÎ¬Âëticket (ÁÙÊ±)
+	// åˆ›å»ºäºŒç»´ç ticket (ä¸´æ—¶)
     public static String qrcode_ticket_url = "https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=TOKEN";  
     
-    // »»È¡¶şÎ¬ÂëµÄµØÖ·
+    // æ¢å–äºŒç»´ç çš„åœ°å€
     public static String show_qrcode_url   = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=TICKET";
     
     /**
@@ -27,7 +27,7 @@ public class WxQrCodeUtil {
      * 			{"scene_id": 123}
      * 		}
      * }
-     * »ñÈ¡»»¶şÎ¬ÂëµÄticket
+     * è·å–æ¢äºŒç»´ç çš„ticket
      * */
     public static String getQrCodeTicket(String accessToken,Integer scene)
     {
@@ -55,9 +55,9 @@ public class WxQrCodeUtil {
     }
     
     /**
-	 * »ñÈ¡¶şÎ¬Âë
-	 * ÁÙÊ±¶şÎ¬Âë:{"expire_seconds": 604800, 	"action_name": "QR_SCENE", 			"action_info": {"scene": {"scene_id": 123}}}
-	 * ÓÀ¾Ã¶şÎ¬Âë:{								"action_name": "QR_LIMIT_SCENE", 	"action_info": {"scene": {"scene_id": 123}}}
+	 * è·å–äºŒç»´ç 
+	 * ä¸´æ—¶äºŒç»´ç :{"expire_seconds": 604800, 	"action_name": "QR_SCENE", 			"action_info": {"scene": {"scene_id": 123}}}
+	 * æ°¸ä¹…äºŒç»´ç :{								"action_name": "QR_LIMIT_SCENE", 	"action_info": {"scene": {"scene_id": 123}}}
 	 * */
 	public static JSONObject getQrUrlJson(String accessToken,long expireSeconds,String actionName,String sceneId)
 	{

@@ -10,13 +10,13 @@ package cn.pudding.weichat.message.response;
  * */
 public class WcWeiQiyehaoMsgResp {
 
-	// ½ÓÊÕ·½ÕÊºÅ£¨ÊÕµ½µÄOpenID£©  
+	// æ¥æ”¶æ–¹å¸å·ï¼ˆæ”¶åˆ°çš„OpenIDï¼‰  
     private String Encrypt;  
-    // ¿ª·¢ÕßÎ¢ĞÅºÅ  
+    // å¼€å‘è€…å¾®ä¿¡å·  
     private String MsgSignature;  
-    // ÏûÏ¢´´½¨Ê±¼ä £¨ÕûĞÍ£©  
+    // æ¶ˆæ¯åˆ›å»ºæ—¶é—´ ï¼ˆæ•´å‹ï¼‰  
     private long TimeStamp;  
-    // ÏûÏ¢ÀàĞÍ£¨text/music/news£©  
+    // æ¶ˆæ¯ç±»å‹ï¼ˆtext/music/newsï¼‰  
     private String Nonce;
     
 	public String getEncrypt() {

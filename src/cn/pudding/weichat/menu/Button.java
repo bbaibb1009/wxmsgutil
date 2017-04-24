@@ -1,7 +1,7 @@
 //:Button.java
 package cn.pudding.weichat.menu;
 /** 
- * °´Å¥»ùÀà 
+ * æŒ‰é’®
  * @author dingjie 
  * @date 2014-08-08 
  */  

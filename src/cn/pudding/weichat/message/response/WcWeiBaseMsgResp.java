@@ -1,21 +1,21 @@
 package cn.pudding.weichat.message.response;
 /** 
- * ÏûÏ¢»ùÀà ¹«ÖÚÕÊºÅ->ÆÕÍ¨ÓÃ»§ 
- * ×¢Òâ:±äÁ¿µÄÃüÃûÒ»¶¨ÒªºÍÎ¢ĞÅÆ½Ì¨Ô¼¶¨µÄ¸ñÊ½Ò»Ñù ´óĞ¡Ğ´²»Ò»ÖÂÒ²²»ĞĞ
+ * æ¶ˆæ¯åŸºç±» å…¬ä¼—å¸å·->æ™®é€šç”¨æˆ· 
+ * æ³¨æ„:å˜é‡çš„å‘½åä¸€å®šè¦å’Œå¾®ä¿¡å¹³å°çº¦å®šçš„æ ¼å¼ä¸€æ · å¤§å°å†™ä¸ä¸€è‡´ä¹Ÿä¸è¡Œ
  * @author dingjie 
  * @date 2014-12-05 
  */  
 public class WcWeiBaseMsgResp {
 	
-    // ½ÓÊÕ·½ÕÊºÅ£¨ÊÕµ½µÄOpenID£©  
+    // æ¥æ”¶æ–¹å¸å·ï¼ˆæ”¶åˆ°çš„OpenIDï¼‰  
     private String ToUserName;  
-    // ¿ª·¢ÕßÎ¢ĞÅºÅ  
+    // å¼€å‘è€…å¾®ä¿¡å·  
     private String FromUserName;  
-    // ÏûÏ¢´´½¨Ê±¼ä £¨ÕûĞÍ£©  
+    // æ¶ˆæ¯åˆ›å»ºæ—¶é—´ ï¼ˆæ•´å‹ï¼‰  
     private long CreateTime;  
-    // ÏûÏ¢ÀàĞÍ£¨text/music/news£©  
+    // æ¶ˆæ¯ç±»å‹ï¼ˆtext/music/newsï¼‰  
     private String MsgType;  
-    // Î»0x0001±»±êÖ¾Ê±£¬ĞÇ±ê¸ÕÊÕµ½µÄÏûÏ¢  
+    // ä½0x0001è¢«æ ‡å¿—æ—¶ï¼Œæ˜Ÿæ ‡åˆšæ”¶åˆ°çš„æ¶ˆæ¯  
     private int FuncFlag;
     
 	public String getToUserName() {

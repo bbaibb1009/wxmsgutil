@@ -10,106 +10,106 @@ import org.apache.log4j.Logger;
 
 import cn.pudding.weichat.http.HttpUtil;
 public class AccessTokenUtil {
-	
-	// ªÒ»°access_tokenµƒΩ”ø⁄µÿ÷∑£®GET£© œﬁ200£®¥Œ/ÃÏ£©  
+
+    // Ëé∑Âèñaccess_tokenÁöÑÊé•Âè£Âú∞ÂùÄÔºàGETÔºâ Èôê200ÔºàÊ¨°/Â§©Ôºâ
 	public final static String access_token_url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET";  
 	
 	private static Logger log = Logger.getLogger(AccessTokenUtil.class);
-	
-	/** 
-	 * ªÒ»°access_token JSONObject
-	 * @param appid ∆æ÷§ 
-	 * @param appsecret √‹‘ø 
-	 * @return net.sf.json.JSONObject
-	 */  
-	public static JSONObject getAccessTokenJson(String appid, String appsecret) {  
-		JSONObject jsonAccessToken = null;  
-	    String requestUrl = access_token_url.replace("APPID", appid).replace("APPSECRET", appsecret);  
-	    jsonAccessToken =  HttpUtil.httpRequestJson(requestUrl, "GET", null);
-	    // »Áπ˚«Î«Û≥…π¶  
-	    if (null != jsonAccessToken) 
-	    {  
-	        try 
-	        {
-	        	jsonAccessToken.getString("access_token");
-	        } 
-	        catch (JSONException e) 
-	        {  
-	            // ªÒ»°token ß∞‹  
-	            log.error("ªÒ»°token ß∞‹ ");  
-	            jsonAccessToken = null;  
-	        }  
-	    }  
-	    return jsonAccessToken;
-	}
-	
-	/** 
-	 * ªÒ»°access_token ∂‘œÛ
-	 * @param appid ∆æ÷§ 
-	 * @param appsecret √‹‘ø 
-	 * @return AccessToken
-	 */  
-	public static AccessToken getAccessToken(String appid, String appsecret) {  
-		AccessToken accessToken = null;  
-	    String requestUrl = access_token_url.replace("APPID", appid).replace("APPSECRET", appsecret);  
-	    JSONObject jsonAccessToken = HttpUtil.httpRequestJson(requestUrl, "GET", null);
-	    // »Áπ˚«Î«Û≥…π¶  
-	    if (null != jsonAccessToken) {  
-	        try 
-	        {  
-	            accessToken = new AccessToken();  
-	            accessToken.setAccess_token(jsonAccessToken.getString("access_token"));  
-	            accessToken.setExpires_in(jsonAccessToken.getInt("expires_in"));  
-	        } 
-	        catch (JSONException e) 
-	        {  
-	            // ªÒ»°token ß∞‹  
-	            log.error("ªÒ»°token ß∞‹ errcode:{"+jsonAccessToken.getInt("errcode")+"} errmsg:{"+jsonAccessToken.getString("errmsg")+"}");
-	            accessToken = null; 
-	        }  
-	    }  
-	    return accessToken;  
-	}
-	
-	/** 
-	 * ªÒ»°access_token ∂‘œÛ
-	 * @param appid ∆æ÷§ 
-	 * @param appsecret √‹‘ø 
-	 * @return Map<String,Object>
-	 */  
-	public static Map<String, Object> getAccessTokenMap(String appid, String appsecret) {  
-		Map<String, Object> map = null;  
-	    String requestUrl = access_token_url.replace("APPID", appid).replace("APPSECRET", appsecret);  
-	    JSONObject jsonAccessToken = HttpUtil.httpRequestJson(requestUrl, "GET", null);
-	    // »Áπ˚«Î«Û≥…π¶  
-	    if (null != jsonAccessToken) {  
-	        try 
-	        {  
-	        	map = new HashMap<String,Object>();  
-	        	map.put("access_token", jsonAccessToken.getString("access_token"));  
-	        	map.put("expires_in", jsonAccessToken.getInt("expires_in"));  
-	        } 
-	        catch (JSONException e) 
-	        {  
-	            // ªÒ»°token ß∞‹  
-	            log.error("ªÒ»°token ß∞‹ errcode:{"+jsonAccessToken.getInt("errcode")+"} errmsg:{"+jsonAccessToken.getString("errmsg")+"}");  
-	            map = null;  
-	        }  
-	    }  
-	    return map;  
-	}
-	
-	/** 
-	 * ªÒ»°access_token◊÷∑˚¥Æ 
-	 * @param appid ∆æ÷§ 
-	 * @param appsecret √‹‘ø 
-	 * @return String 
-	 */
-	public static String getAccessTokenStr(String appid, String appsecret)
-	{
-		String accessToken = null;
-		String requestUrl = access_token_url.replace("APPID", appid).replace("APPSECRET", appsecret);  
-		accessToken = HttpUtil.httpRequest(requestUrl, "GET", null);
-		return accessToken;
-	}
+
+    /**
+     * Ëé∑Âèñaccess_token JSONObject
+     * @param appid Âá≠ËØÅ
+     * @param appsecret ÂØÜÈí•
+     * @return net.sf.json.JSONObject
+     */
+    public static JSONObject getAccessTokenJson(String appid, String appsecret) {
+        JSONObject jsonAccessToken = null;
+        String requestUrl = access_token_url.replace("APPID", appid).replace("APPSECRET", appsecret);
+        jsonAccessToken =  HttpUtil.httpRequestJson(requestUrl, "GET", null);
+        // Â¶ÇÊûúËØ∑Ê±ÇÊàêÂäü
+        if (null != jsonAccessToken)
+        {
+            try
+            {
+                jsonAccessToken.getString("access_token");
+            }
+            catch (JSONException e)
+            {
+                // Ëé∑ÂèñtokenÂ§±Ë¥•
+                log.error("Ëé∑ÂèñtokenÂ§±Ë¥• ");
+                jsonAccessToken = null;
+            }
+        }
+        return jsonAccessToken;
+    }
+
+    /**
+     * Ëé∑Âèñaccess_token ÂØπË±°
+     * @param appid Âá≠ËØÅ
+     * @param appsecret ÂØÜÈí•
+     * @return AccessToken
+     */
+    public static AccessToken getAccessToken(String appid, String appsecret) {
+        AccessToken accessToken = null;
+        String requestUrl = access_token_url.replace("APPID", appid).replace("APPSECRET", appsecret);
+        JSONObject jsonAccessToken = HttpUtil.httpRequestJson(requestUrl, "GET", null);
+        // Â¶ÇÊûúËØ∑Ê±ÇÊàêÂäü
+        if (null != jsonAccessToken) {
+            try
+            {
+                accessToken = new AccessToken();
+                accessToken.setAccess_token(jsonAccessToken.getString("access_token"));
+                accessToken.setExpires_in(jsonAccessToken.getInt("expires_in"));
+            }
+            catch (JSONException e)
+            {
+                // Ëé∑ÂèñtokenÂ§±Ë¥•
+                log.error("Ëé∑ÂèñtokenÂ§±Ë¥• errcode:{"+jsonAccessToken.getInt("errcode")+"} errmsg:{"+jsonAccessToken.getString("errmsg")+"}");
+                accessToken = null;
+            }
+        }
+        return accessToken;
+    }
+
+    /**
+     * Ëé∑Âèñaccess_token ÂØπË±°
+     * @param appid Âá≠ËØÅ
+     * @param appsecret ÂØÜÈí•
+     * @return Map<String,Object>
+     */
+    public static Map<String, Object> getAccessTokenMap(String appid, String appsecret) {
+        Map<String, Object> map = null;
+        String requestUrl = access_token_url.replace("APPID", appid).replace("APPSECRET", appsecret);
+        JSONObject jsonAccessToken = HttpUtil.httpRequestJson(requestUrl, "GET", null);
+        // Â¶ÇÊûúËØ∑Ê±ÇÊàêÂäü
+        if (null != jsonAccessToken) {
+            try
+            {
+                map = new HashMap<String,Object>();
+                map.put("access_token", jsonAccessToken.getString("access_token"));
+                map.put("expires_in", jsonAccessToken.getInt("expires_in"));
+            }
+            catch (JSONException e)
+            {
+                // Ëé∑ÂèñtokenÂ§±Ë¥•
+                log.error("Ëé∑ÂèñtokenÂ§±Ë¥• errcode:{"+jsonAccessToken.getInt("errcode")+"} errmsg:{"+jsonAccessToken.getString("errmsg")+"}");
+                map = null;
+            }
+        }
+        return map;
+    }
+
+    /**
+     * Ëé∑Âèñaccess_tokenÂ≠óÁ¨¶‰∏≤
+     * @param appid Âá≠ËØÅ
+     * @param appsecret ÂØÜÈí•
+     * @return String
+     */
+    public static String getAccessTokenStr(String appid, String appsecret)
+    {
+        String accessToken = null;
+        String requestUrl = access_token_url.replace("APPID", appid).replace("APPSECRET", appsecret);
+        accessToken = HttpUtil.httpRequest(requestUrl, "GET", null);
+        return accessToken;
+    }
 }

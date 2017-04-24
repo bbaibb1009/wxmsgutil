@@ -2,15 +2,15 @@ package cn.pudding.weichat.message.request;
 
 public class WcWeiBaseMsgReq {
 	
-	// ¿ª·¢ÕßÎ¢ĞÅºÅ   
+	// å¼€å‘è€…å¾®ä¿¡å·   
 	private String toUserName;  
-	// ·¢ËÍ·½ÕÊºÅ£¨Ò»¸öOpenID£©   
+	// å‘é€æ–¹å¸å·ï¼ˆä¸€ä¸ªOpenIDï¼‰   
 	private String fromUserName;  
-	// ÏûÏ¢´´½¨Ê±¼ä £¨ÕûĞÍ£©   
+	// æ¶ˆæ¯åˆ›å»ºæ—¶é—´ ï¼ˆæ•´å‹ï¼‰   
 	private long createTime;  
-	// ÏûÏ¢ÀàĞÍ£¨text/image/location/link£©   
+	// æ¶ˆæ¯ç±»å‹ï¼ˆtext/image/location/linkï¼‰   
 	private String msgType;  
-	// ÏûÏ¢id£¬64Î»ÕûĞÍ   
+	// æ¶ˆæ¯idï¼Œ64ä½æ•´å‹   
 	private long msgId;
 	
 	public String getToUserName() {

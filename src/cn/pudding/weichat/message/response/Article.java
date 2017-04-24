@@ -2,16 +2,16 @@ package cn.pudding.weichat.message.response;
 
 public class Article {
 
-	// ͼ����Ϣ����  
+	// 图文消息名称  
     private String Title;  
     
-    // ͼ����Ϣ����  
+    // 图文消息描述  
     private String Description;  
     
-    // ͼƬ���ӣ�֧��JPG��PNG��ʽ���Ϻõ�Ч��Ϊ��ͼ640*320��Сͼ80*80������ͼƬ���ӵ�������Ҫ�뿪������д�Ļ��������е�Urlһ��  
+    // 图片链接，支持JPG、PNG格式，较好的效果为大图640*320，小图80*80，限制图片链接的域名需要与开发者填写的基本资料中的Url一致  
     private String PicUrl;  
     
-    // ���ͼ����Ϣ��ת����  
+    // 点击图文消息跳转链接  
     private String Url; 
     
     

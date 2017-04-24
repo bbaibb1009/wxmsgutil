@@ -11,15 +11,15 @@ import cn.pudding.weichat.qrcode.QrCodeUtil;
 
 public class WxPayQrCode {
 
-	private String appid;		//¹«ÖÚÕËºÅID wx8888888888888888 	Î¢ÐÅ·ÖÅäµÄ¹«ÖÚÕËºÅID
-	private String mch_id;		//ÉÌ»§ºÅ Î¢ÐÅÖ§¸¶·ÖÅäµÄÉÌ»§ºÅ
-	private String time_stamp;	//Ê±¼ä´Á ±ê×¼±±¾©Ê±¼ä£¬Ê±ÇøÎª¶«°ËÇø£¬×Ô1970Äê1ÔÂ1ÈÕ 0µã0·Ö0ÃëÒÔÀ´µÄÃëÊý¡£×¢Òâ£º²¿·ÖÏµÍ³È¡µ½µÄÖµÎªºÁÃë¼¶£¬ÐèÒª×ª»»³ÉÃë(10Î»Êý×Ö)¡£ 
-	private String nonce_str;	//Ëæ»ú×Ö·û´®  Ëæ»ú×Ö·û´®£¬²»³¤ÓÚ32Î»¡£ 
-	private String product_id;	//ÉÌÆ·ID ÉÌ»§¶¨ÒåµÄÉÌÆ·id »òÕß¶©µ¥ºÅ
-	private String sign;		//Ç©Ãû  Ïê¼ûÇ©ÃûÉú³ÉËã·¨
-	private String key;			//ÃÜÔ¿
-	private String codeUrl;		//¶þÎ¬ÂëÄÚÈÝ url
-	private byte[] codeBytes; 	//ÓÃÓÚÊä³öµÄ¸¶¿î¶þÎ¬Âë
+	private String appid;		//å…¬ä¼—è´¦å·ID wx8888888888888888 	å¾®ä¿¡åˆ†é…çš„å…¬ä¼—è´¦å·ID
+	private String mch_id;		//å•†æˆ·å· å¾®ä¿¡æ”¯ä»˜åˆ†é…çš„å•†æˆ·å·
+	private String time_stamp;	//æ—¶é—´æˆ³ æ ‡å‡†åŒ—äº¬æ—¶é—´ï¼Œæ—¶åŒºä¸ºä¸œå…«åŒºï¼Œè‡ª1970å¹´1æœˆ1æ—¥ 0ç‚¹0åˆ†0ç§’ä»¥æ¥çš„ç§’æ•°ã€‚æ³¨æ„ï¼šéƒ¨åˆ†ç³»ç»Ÿå–åˆ°çš„å€¼ä¸ºæ¯«ç§’çº§ï¼Œéœ€è¦è½¬æ¢æˆç§’(10ä½æ•°å­—)ã€‚ 
+	private String nonce_str;	//éšæœºå­—ç¬¦ä¸²  éšæœºå­—ç¬¦ä¸²ï¼Œä¸é•¿äºŽ32ä½ã€‚ 
+	private String product_id;	//å•†å“ID å•†æˆ·å®šä¹‰çš„å•†å“id æˆ–è€…è®¢å•å·
+	private String sign;		//ç­¾å  è¯¦è§ç­¾åç”Ÿæˆç®—æ³•
+	private String key;			//å¯†é’¥
+	private String codeUrl;		//äºŒç»´ç å†…å®¹ url
+	private byte[] codeBytes; 	//ç”¨äºŽè¾“å‡ºçš„ä»˜æ¬¾äºŒç»´ç 
 	
 	private static String wxQrCodeUrl =  "weixin://wxpay/bizpayurl?sign=SIGN&appid=APPID&mch_id=MCHID&product_id=PRODUCTID&time_stamp=TIMESTAMP&nonce_str=NONCE";
 	private static Logger log = Logger.getLogger(WxPayQrCode.class);
@@ -71,7 +71,7 @@ public class WxPayQrCode {
 	}
 	
 	/** 
-     * Î¢ÐÅÖ§¸¶Ç©ÃûËã·¨sign 
+     * å¾®ä¿¡æ”¯ä»˜ç­¾åç®—æ³•sign 
      * @param characterEncoding 
      * @param parameters 
      * @return 
@@ -160,30 +160,30 @@ public class WxPayQrCode {
 	public void setCodeUrl()
 	{
 		StringBuilder message = new StringBuilder();
-		//ÅÐ¶Ï¸÷²ÎÊýµÄ·Ç¿Õ×´Ì¬
+		//åˆ¤æ–­å„å‚æ•°çš„éžç©ºçŠ¶æ€
 		if( null == this.sign || 0 == this.sign.length())
 		{
-			message.append("signÎª¿Õ! ");
+			message.append("signä¸ºç©º! ");
 		}
 		if(null == this.appid || 0 == this.appid.length())
 		{
-			message.append(" appidÎª¿Õ!");
+			message.append(" appidä¸ºç©º!");
 		}
 		if(null == this.mch_id || 0 == this.mch_id.length())	
 		{
-			message.append(" mch_idÎª¿Õ!");
+			message.append(" mch_idä¸ºç©º!");
 		}
 		if(null == this.product_id || 0 == this.product_id.length())	
 		{
-			message.append(" product_idÎª¿Õ!");
+			message.append(" product_idä¸ºç©º!");
 		}
 		if(	null == this.time_stamp || 0 == this.time_stamp.length())
 		{
-			message.append(" time_stampÎª¿Õ!");
+			message.append(" time_stampä¸ºç©º!");
 		}
 		if(	null == this.nonce_str || 0 == this.nonce_str.length())
 		{
-			message.append(" nonce_strÎª¿Õ!");
+			message.append(" nonce_strä¸ºç©º!");
 		}
 		if(message.length()>0)
 		{

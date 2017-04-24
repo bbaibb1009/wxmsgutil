@@ -1,7 +1,7 @@
 //:ViewButton.java
 package cn.pudding.weichat.menu;
 /** 
- * view���͵Ĳ˵� 
+ * view类型的菜单 
  * @author dingj 
  * @date 2014-12-06 
  */ 
